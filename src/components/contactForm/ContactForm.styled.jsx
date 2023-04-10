@@ -45,11 +45,11 @@ export const StyledField = styled(Field)`
   transition: box-shadow 0.3s ease-in-out;
   &:focus {
     outline: none;
-    border-color: #a66dd4;
+    border-color: #f08307;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
   }
   &:focus ~ span {
-    color: #a66dd4;
+    color: #f08307;
   }
 `;
 
@@ -77,7 +77,7 @@ export const Button = styled.button`
   box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
     7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
   outline: none;
-  background: #b621fe;
+  background: #f08307;
   border: none;
   z-index: 1;
 
@@ -89,7 +89,7 @@ export const Button = styled.button`
     top: 0;
     right: 0;
     z-index: -1;
-    background-color: #663dff;
+    background-color: #b46306;
     border-radius: 5px;
     box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
       7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);

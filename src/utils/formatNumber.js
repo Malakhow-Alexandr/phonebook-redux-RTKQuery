@@ -3,7 +3,6 @@ export const formatLittleNumber = number => {
   const firstPart = formattedNumber.slice(0, 3);
   const secondPart = formattedNumber.slice(3, 5);
   const thirdPart = formattedNumber.slice(5);
-  console.log(formattedNumber.length);
   return `${firstPart}-${secondPart}-${thirdPart}`;
 };
 

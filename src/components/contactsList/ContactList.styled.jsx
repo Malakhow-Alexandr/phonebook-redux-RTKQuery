@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 
 export const ListStyled = styled.ul`
+  position: relative;
   list-style: none;
   margin: auto;
   width: 500px;

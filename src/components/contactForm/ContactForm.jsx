@@ -1,8 +1,7 @@
 import { ErrorMessage, Formik } from 'formik';
-import { useDispatch } from 'react-redux';
 import { formatNumber } from 'utils/formatNumber';
 import { formatName } from 'utils/formatName';
-import { addContacts } from 'redux/operations';
+import { useGetContactsQuery } from 'redux/contactsSlice';
 import { useAddContactMutation } from 'redux/contactsSlice';
 
 import * as yup from 'yup';
@@ -15,6 +14,7 @@ import {
   Button,
   StyledLabel,
 } from './ContactForm.styled';
+import { toast } from 'react-toastify';
 
 const validationSchema = yup.object().shape({
   name: yup
@@ -32,9 +32,9 @@ const validationSchema = yup.object().shape({
       'maxDigits',
       'Phone number must not have more than 12 digits',
       value => {
-        if (!value) return true; // Skip validation if no value is provided
-        const numDigits = value.replace(/\D/g, '').length; // Count the number of digits
-        return numDigits <= 12; // Return true if the number of digits is less than or equal to 12
+        if (!value) return true;
+        const numDigits = value.replace(/\D/g, '').length;
+        return numDigits <= 12;
       }
     )
     .matches(
@@ -47,12 +47,18 @@ const validationSchema = yup.object().shape({
 export const ContactForm = () => {
   const [addContact] = useAddContactMutation();
 
+  const { data: contacts } = useGetContactsQuery();
+
   const initialValues = { name: '', number: '' };
 
   const handleSubmit = (values, { resetForm }) => {
-    // if (contacts.map(contact => contact.name).includes(values.name)) {
-    //   return alert(`${values.name} is alredy in contacts.`);
-    // }
+    if (
+      contacts
+        .map(contact => contact.name.toLowerCase())
+        .includes(values.name.toLowerCase())
+    ) {
+      return toast.warn(`${values.name} is alredy in contacts.`);
+    }
 
     const contact = {
       name: formatName(values.name),
@@ -61,8 +67,11 @@ export const ContactForm = () => {
 
     addContact(contact);
 
+    toast.success(`${values.name} add to contacts.`);
+
     resetForm();
   };
+
   return (
     <Formik
       validationSchema={validationSchema}

@@ -30,8 +30,7 @@ export const ButtonListItem = styled.button`
   font-family: 'Rubik', sans-serif;
   font-size: 16px;
   font-weight: 500;
-  background: #a66dd4;
-  background: linear-gradient(0deg, #b139c9 0%, #943394 100%);
+  background: #f08307;
   cursor: pointer;
   transition: all 0.3s ease;
   position: relative;
@@ -39,7 +38,7 @@ export const ButtonListItem = styled.button`
   outline: none;
 
   &:hover {
-    color: #b139c9;
+    color: #c41431;
     background: transparent;
     box-shadow: none;
   }
@@ -53,8 +52,8 @@ export const ButtonListItem = styled.button`
     height: 2px;
     width: 0;
     height: 2px;
-    background: #b139c9;
-    box-shadow: -1px -1px 5px 0px #9e2a8f, 7px 7px 20px 0px #0003,
+    background: #b60816;
+    box-shadow: -1px -1px 5px 0px #b60816, 7px 7px 20px 0px #0003,
       4px 4px 5px 0px #0002;
     transition: 400ms ease all;
   }
@@ -72,5 +71,16 @@ export const ButtonListItem = styled.button`
   }
   &:hover ~ p {
     color: red;
+  }
+  &:disabled {
+    background: #aea8b3;
+    background: linear-gradient(0deg, #958a97 0%, #a89da8 100%);
+    &:before,
+    &:after {
+      height: 0;
+      background: grey;
+      box-shadow: none;
+      transition: 0ms ease all;
+    }
   }
 `;

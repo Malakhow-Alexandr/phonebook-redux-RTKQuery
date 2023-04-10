@@ -11,7 +11,7 @@ export const Title = styled.h2`
   text-align: center;
   font-family: 'Rubik', sans-serif;
 
-  color: #a66dd4;
+  color: #f08307;
   margin: 0;
   margin-bottom: 20px;
   font-size: 30px;

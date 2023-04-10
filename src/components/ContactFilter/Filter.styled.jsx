@@ -23,11 +23,11 @@ export const FilterStyledInput = styled.input`
   transition: box-shadow 0.3s ease-in-out;
   &:focus {
     outline: none;
-    border-color: #a66dd4;
+    border-color: #f08307;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
   }
   &:focus ~ span {
-    color: #a66dd4;
+    color: #f08307;
   }
 `;
 export const FilterLabel = styled.span`
