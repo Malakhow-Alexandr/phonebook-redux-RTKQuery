@@ -11,6 +11,7 @@ import {
 
 export const ContactFilter = () => {
   const dispatch = useDispatch();
+
   const handleFilterChange = filter => {
     dispatch(setFilter(filter));
   };
