@@ -25,6 +25,8 @@ export const ContactsList = () => {
 
   const filteredContacts = filterContacts(data);
 
+
+  
   if (isError) {
     toast.error(`Sorry we have a ${error.message}, please reload page!`);
   }

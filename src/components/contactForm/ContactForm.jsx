@@ -45,7 +45,7 @@ const validationSchema = yup.object().shape({
 });
 
 export const ContactForm = () => {
-  const [addContact] = useAddContactMutation();
+  const [addContact, { isSuccess }] = useAddContactMutation();
 
   const { data: contacts } = useGetContactsQuery();
 
@@ -67,11 +67,12 @@ export const ContactForm = () => {
 
     addContact(contact);
 
-    toast.success(`${values.name} add to contacts.`);
-
     resetForm();
   };
 
+  if (isSuccess) {
+    toast.success(`New contact add!`);
+  }
   return (
     <Formik
       validationSchema={validationSchema}
