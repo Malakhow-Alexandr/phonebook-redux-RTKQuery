@@ -45,7 +45,7 @@ const validationSchema = yup.object().shape({
 });
 
 export const ContactForm = () => {
-  const [addContact, { isSuccess }] = useAddContactMutation();
+  const [addContact] = useAddContactMutation();
 
   const { data: contacts } = useGetContactsQuery();
 
