@@ -67,12 +67,11 @@ export const ContactForm = () => {
 
     addContact(contact);
 
+    toast.success(`${values.name} add to contacts.`);
+
     resetForm();
   };
 
-  if (isSuccess) {
-    toast.success(`New contact add!`);
-  }
   return (
     <Formik
       validationSchema={validationSchema}
